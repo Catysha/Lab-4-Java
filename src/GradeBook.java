@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 public class GradeBook {
 
     private String surname;
@@ -167,8 +169,76 @@ public class GradeBook {
             System.out.println("Файл не найден");
         }
     }
-}
+    public static void writeExcellentStudentsToJSONFile(String outputFile, List<GradeBook> gradeBooks) {
+        List<ExcellentStudent> excellentStudents = new ArrayList<>();
 
+        for (GradeBook gradeBook : gradeBooks) {
+            for (Session session : gradeBook.sessions) {
+                if (session.findNineInExams()) {
+                    ExcellentStudent student = new ExcellentStudent(
+                            gradeBook.surname,
+                            gradeBook.name,
+                            gradeBook.course,
+                            gradeBook.group,
+                            session.numberOfSession,
+                            session.getExams()
+                    );
+                    excellentStudents.add(student);
+                }
+            }
+        }
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(new File(outputFile), excellentStudents);
+            System.out.println("Файл JSON с отличниками создан");
+        } catch (IOException e) {
+            System.out.println("Ошибка записи файла: " + e.getMessage());
+        }
+    }
+    public static class ExcellentStudent {
+        private String surname;
+        private String name;
+        private int course;
+        private int group;
+        private int sessionNumber;
+        private List<Exam> exams;
+
+        public ExcellentStudent(String surname, String name, int course, int group, int sessionNumber, List<Exam> exams) {
+            this.surname = surname;
+            this.name = name;
+            this.course = course;
+            this.group = group;
+            this.sessionNumber = sessionNumber;
+            this.exams = exams;
+        }
+        public String getSurname() {
+            return surname;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getCourse() {
+            return course;
+        }
+
+        public int getGroup() {
+            return group;
+        }
+
+        public int getSessionNumber() {
+            return sessionNumber;
+        }
+
+        public List<Exam> getExams() {
+            return exams;
+        }
+
+    }
+}
 
 
 

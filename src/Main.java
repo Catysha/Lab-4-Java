@@ -12,5 +12,6 @@ public class Main {
         }
         String excellentStudentsOutputFile = "output.txt";
         GradeBook.writeExcellentStudentsToFile(excellentStudentsOutputFile, students);
+        GradeBook.writeExcellentStudentsToJSONFile("output.json", students);
     }
 }

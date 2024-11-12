@@ -7,5 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jackson-annotations-2.13.2" level="project" />
+    <orderEntry type="library" name="jackson-core-2.13.2" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.18.0" level="project" />
+    <orderEntry type="library" name="jackson-dataformat-xml-2.13.2" level="project" />
+    <orderEntry type="library" name="jackson-dataformat-yaml-2.13.2" level="project" />
+    <orderEntry type="library" name="woodstox-core-6.2.8" level="project" />
+    <orderEntry type="library" name="snakeyaml-1.30" level="project" />
+    <orderEntry type="library" name="stax2-api-4.2.1" level="project" />
   </component>
 </module>
