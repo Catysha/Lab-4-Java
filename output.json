@@ -1,0 +1,34 @@
+[ {
+  "surname" : "Андрей",
+  "name" : "Стычкин",
+  "course" : 2,
+  "group" : 4,
+  "sessionNumber" : 2,
+  "exams" : [ {
+    "subject" : "Алгоритмы и структуры данных",
+    "grade" : 9
+  } ]
+}, {
+  "surname" : "Андрей",
+  "name" : "Стычкин",
+  "course" : 2,
+  "group" : 4,
+  "sessionNumber" : 1,
+  "exams" : [ {
+    "subject" : "Математический анализ",
+    "grade" : 9
+  }, {
+    "subject" : "Промышленное программирование",
+    "grade" : 9
+  } ]
+}, {
+  "surname" : "Валерия",
+  "name" : "Бубликова",
+  "course" : 1,
+  "group" : 8,
+  "sessionNumber" : 1,
+  "exams" : [ {
+    "subject" : "Математический анализ",
+    "grade" : 10
+  } ]
+} ]
